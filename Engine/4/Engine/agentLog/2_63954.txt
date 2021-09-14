@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "F:\Erfan\Competition\AICup2021\Code\AICup2021\Engine\4\Engine\ProcessManagement\ProcessManager.py", line 38, in __init__
+    self.process = Popen(command, stdin=PIPE, stderr=stderrStream,
+  File "C:\Users\Erfan\AppData\Local\Programs\Python\Python39\lib\subprocess.py", line 947, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\Erfan\AppData\Local\Programs\Python\Python39\lib\subprocess.py", line 1416, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\Erfan\Competition\AICup2021\Code\AICup2021\Engine\4\Engine\main.py", line 95, in <module>
+    main(args)
+  File "F:\Erfan\Competition\AICup2021\Code\AICup2021\Engine\4\Engine\main.py", line 20, in main
+    players.append(PlayerProcess(
+  File "F:\Erfan\Competition\AICup2021\Code\AICup2021\Engine\4\Engine\ProcessManagement\ProcessManager.py", line 42, in __init__
+    raise Exception(
+Exception: Process failed to start properly. Executable: none.	Timeout: 0.4.
