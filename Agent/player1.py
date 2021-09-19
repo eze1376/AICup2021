@@ -1,4 +1,6 @@
 # from MessageController import MsgController
+import sys
+
 def Initialization(initMsg):
     msgElements = initMsg.split(' ')
     global mapHeight, mapWidth, playerX, playerY, playerHealth, playerBombRange, playerTrapCount, \
@@ -19,30 +21,46 @@ def Initialization(initMsg):
     deadzoneExpansionDelay = msgElements[12]
     maxStep = msgElements[13]
 
-    print("init confirm")
+    return('init confirm')
 
 def MsgController(msg):
+    global gamePlaying
+
     msgElements = msg.split(' ')
-    # print(msgElements)
-    if msgElements[0]=="init":
-        return("init confirm")
+    print(f'Message: {msg}', file=sys.stderr)
+
+    # Game Initialization
+    if msgElements[0] == "init":
+        return Initialization(msg)
+    
+    # Game Termination
+    elif msgElements[0] == "term":
+        gamePlaying = False
+        print(f'winner: {msgElements[2]}', file=sys.stderr)
+    
+    # Game Playing
+    elif msgElements[-1] == "EOM":
+        # Opponent in Range
+        if int(msgElements[8]) == 1:
+            print(f'in Range', file=sys.stderr)
+    
+        # Opponent out of Range
+        elif int(msgElements[8]) == 0:
+            print(f'out of Range', file=sys.stderr)
+    
+    # Error in Game
     else:
         return 0
 
 
-
-initMsg = input()
-Initialization(initMsg)
-
-
 gamePlaying = True
-
 
 while(gamePlaying):
     msg = input()
     respond = MsgController(msg)
+    print(f'Respond: {respond}', file=sys.stderr)
 
     if respond != 0:
         print(respond)
-    
-    gamePlaying = False
+    else:
+        gamePlaying = False
