@@ -2,4 +2,4 @@
 
 to run:
 
-`py Engine\7\Engine\main.py -p1 Agent\player1.py -p2 Agent\player1.py`
+`py Engine\8\Engine\main.py -p1 Agent\player1.py -p2 Agent\player1.py`
