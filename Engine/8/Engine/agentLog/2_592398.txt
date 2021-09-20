@@ -1,0 +1,5 @@
+Message: init 11 15 9 13 3 2 1 5 8 5 150 5 400
+Respond: init confirm
+Message: term 0 2
+winner: 2
+Respond: None
