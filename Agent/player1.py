@@ -1,5 +1,6 @@
 # from MessageController import MsgController
 import sys
+import time.time
 
 def Initialization(initMsg):
     msgElements = initMsg.split(' ')
