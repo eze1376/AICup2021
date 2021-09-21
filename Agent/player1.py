@@ -25,6 +25,24 @@ def Initialization(initMsg):
 
     return('init confirm')
 
+
+def FindPlayer(numVision, vision):
+    print("player")
+
+def FindBox(numVison, vision):
+    print("hello", numVison, vision)
+
+    boxList = []
+    for i in range(int(numVison)):
+        x = vision[3 * i]
+        y = vision[3 * i + 1]
+        state = vision[3 * i + 2]
+        
+        if int(state) == 2:
+            boxList.append((int(x), int(y)))
+
+    return boxList 
+
 def MsgController(msg):
     global gamePlaying
 
@@ -49,6 +67,8 @@ def MsgController(msg):
         # Opponent out of Range
         elif int(msgElements[8]) == 0:
             print(f'out of Range', file=sys.stderr)
+            boxList = FindBox(msgElements[9], msgElements[10:-1])
+            print(boxList)
     
     # Error in Game
     else:
