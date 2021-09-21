@@ -25,8 +25,14 @@ def Initialization(initMsg):
 
     return('init confirm')
 
+def NoOpponentNoBox():
+    # Random Walk
+    print("random walk")
 
-def FindPlayer(numVision, vision):
+def BoxFinded(boxPositions):
+    print(boxPositions)
+
+def FindOpponent(numVision, vision):
     print("player")
 
 def FindBox(numVison, vision):
@@ -68,7 +74,12 @@ def MsgController(msg):
         elif int(msgElements[8]) == 0:
             print(f'out of Range', file=sys.stderr)
             boxList = FindBox(msgElements[9], msgElements[10:-1])
-            print(boxList)
+            if boxList:
+                # Box Finded
+                BoxFinded(boxList)
+            else:
+                # random walk
+                NoOpponentNoBox()
     
     # Error in Game
     else:
