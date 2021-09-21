@@ -69,13 +69,22 @@ def MsgController(msg):
     
     # Game Playing
     elif msgElements[-1] == "EOM":
+        global stepCount
+        stepCount = msgElements[0]
         # Opponent in Range
         if int(msgElements[8]) == 1:
             print(f'in Range', file=sys.stderr)
             global opponentX, opponentY, opponentHealth
+            global opponentTrajectory 
+            opponentTrajectory = []
+
             opponentX = msgElements[9]
             opponentY = msgElements[10]
             opponentHealth = msgElements[11]
+
+            # save opponent trajectory
+            opponentTrajectory.append((opponentX, opponentY, opponentHealth, stepCount))
+
             boxList = FindBox(msgElements[12], msgElements[13:-1])
 
             if boxList:
