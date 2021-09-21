@@ -1,6 +1,6 @@
 # from MessageController import MsgController
 import sys
-import time.time
+import time
 import numpy as np
 
 def Initialization(initMsg):
