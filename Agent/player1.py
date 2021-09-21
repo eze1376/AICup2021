@@ -32,8 +32,11 @@ def NoOpponentNoBox():
 def BoxFinded(boxPositions):
     print(boxPositions)
 
-def FindOpponent(numVision, vision):
-    print("player")
+def BothOpponentAndBox(opponentPosition, boxPositions):
+    print(opponentPosition, boxPositions)
+
+def JustOpponentVisited(opponentPosition):
+    print(opponentPosition)
 
 def FindBox(numVison, vision):
     print("hello", numVison, vision)
@@ -69,6 +72,18 @@ def MsgController(msg):
         # Opponent in Range
         if int(msgElements[8]) == 1:
             print(f'in Range', file=sys.stderr)
+            global opponentX, opponentY, opponentHealth
+            opponentX = msgElements[9]
+            opponentY = msgElements[10]
+            opponentHealth = msgElements[11]
+            boxList = FindBox(msgElements[12], msgElements[13:-1])
+
+            if boxList:
+                # Both Visited
+                BothOpponentAndBox((opponentX, opponentY, opponentHealth), boxList)
+            else:
+                # just Agent Visited
+                JustOpponentVisited((opponentX, opponentY, opponentHealth))
     
         # Opponent out of Range
         elif int(msgElements[8]) == 0:
