@@ -40,7 +40,7 @@ def JustOpponentVisited(opponentPosition):
     print(opponentPosition)
 
 def FindBox(numVison, vision):
-    print("hello", numVison, vision)
+    # print("hello", numVison, vision)
 
     boxList = []
     for i in range(int(numVison)):
