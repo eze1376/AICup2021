@@ -1,0 +1,7 @@
+Message: term 0 2
+winner: 2
+Respond: None
+Traceback (most recent call last):
+  File "F:\Erfan\Competition\AICup2021\Code\AICup2021\Agent\player1.py", line 122, in <module>
+    print(int(respond))
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'

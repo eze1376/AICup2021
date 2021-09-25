@@ -1,7 +1,8 @@
 # from MessageController import MsgController
 import sys
 import time
-import numpy as np
+# import numpy as np
+import random
 
 def Initialization(initMsg):
     msgElements = initMsg.split(' ')
@@ -27,7 +28,7 @@ def Initialization(initMsg):
 
 def NoOpponentNoBox():
     # Random Walk
-    print("random walk")
+    return(int(random.random() * 5))
 
 def BoxFinded(boxPositions):
     print(boxPositions)
@@ -103,21 +104,21 @@ def MsgController(msg):
                 BoxFinded(boxList)
             else:
                 # random walk
-                NoOpponentNoBox()
+                return NoOpponentNoBox()
     
     # Error in Game
     else:
-        return 0
+        return -1
 
 
 gamePlaying = True
 
 while(gamePlaying):
     msg = input()
-    respond = MsgController(msg)
-    print(f'Respond: {respond}', file=sys.stderr)
+    response = MsgController(msg)
+    print(f'Response: {response}', file=sys.stderr)
 
-    if respond != 0:
-        print(respond)
+    if response != -1:
+        print(response)
     else:
         gamePlaying = False

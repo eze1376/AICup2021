@@ -1,0 +1,8 @@
+Message: init 11 15 1 1 3 2 1 5 8 5 150 5 400
+Respond: init confirm
+Message: 0 10 1 1 3 0 2 1 0 32 0 0 0 0 1 0 0 2 4 0 3 0 0 4 0 0 5 0 1 0 0 1 1 256 1 2 0 1 3 0 1 4 0 1 5 0 1 6 4 2 0 4 2 1 0 2 2 4 2 3 4 2 4 8 2 5 0 3 0 0 3 1 0 3 2 4 3 3 4 3 4 8 4 0 0 4 1 0 4 2 8 4 3 8 5 0 0 5 1 0 5 2 8 6 1 0 EOM
+out of Range
+Respond: 4
+Message: term 0 2
+winner: 2
+Respond: None
