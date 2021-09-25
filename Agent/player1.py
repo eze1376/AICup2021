@@ -31,16 +31,19 @@ def NoOpponentNoBox():
     return(int(random.random() * 5))
 
 def BoxFinded(boxPositions):
-    print(boxPositions)
+    # random action
+    return(int(random.random() * 10))
 
 def BothOpponentAndBox(opponentPosition, boxPositions):
-    print(opponentPosition, boxPositions)
+    # random action
+    return(int(random.random() * 10))
+
 
 def JustOpponentVisited(opponentPosition):
-    print(opponentPosition)
+    # random action
+    return(int(random.random() * 10))
 
 def FindBox(numVison, vision):
-    # print("hello", numVison, vision)
 
     boxList = []
     for i in range(int(numVison)):
@@ -90,10 +93,10 @@ def MsgController(msg):
 
             if boxList:
                 # Both Visited
-                BothOpponentAndBox((opponentX, opponentY, opponentHealth), boxList)
+                return BothOpponentAndBox((opponentX, opponentY, opponentHealth), boxList)
             else:
                 # just Agent Visited
-                JustOpponentVisited((opponentX, opponentY, opponentHealth))
+                return JustOpponentVisited((opponentX, opponentY, opponentHealth))
     
         # Opponent out of Range
         elif int(msgElements[8]) == 0:
@@ -101,7 +104,7 @@ def MsgController(msg):
             boxList = FindBox(msgElements[9], msgElements[10:-1])
             if boxList:
                 # Box Finded
-                BoxFinded(boxList)
+                return BoxFinded(boxList)
             else:
                 # random walk
                 return NoOpponentNoBox()
