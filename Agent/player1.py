@@ -48,13 +48,11 @@ def JustOpponentVisited(opponentPosition):
     return(int(random.random() * 10))
 
 def DesToBin(num):
-    binary = []
-
-    while(num>1):
-        binary.append(num % 2)
-        num = int(num / 2)
-    
-    return binary[::-1]
+    res = [int(i) for i in list('{0:0b}'.format(num))]
+    res = res[::-1]
+    for i in range(9 - len(res)):
+        res.append(0)
+    return res
 
 def FindBox(numVison, vision):
 
