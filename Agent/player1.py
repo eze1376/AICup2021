@@ -28,20 +28,33 @@ def Initialization(initMsg):
 
 def NoOpponentNoBox():
     # Random Walk
+    print(f'NoOpponentNoBox', file=sys.stderr)
     return(int(random.random() * 5))
 
 def BoxFinded(boxPositions):
     # random action
+    print(f'BoxFinded', file=sys.stderr)
     return(int(random.random() * 10))
 
 def BothOpponentAndBox(opponentPosition, boxPositions):
     # random action
+    print(f'BothOpponentAndBox', file=sys.stderr)
     return(int(random.random() * 10))
 
 
 def JustOpponentVisited(opponentPosition):
     # random action
+    print(f'JustOpponentVisited', file=sys.stderr)
     return(int(random.random() * 10))
+
+def DesToBin(num):
+    binary = []
+
+    while(num>1):
+        binary.append(num % 2)
+        num = int(num / 2)
+    
+    return binary[::-1]
 
 def FindBox(numVison, vision):
 
@@ -51,7 +64,9 @@ def FindBox(numVison, vision):
         y = vision[3 * i + 1]
         state = vision[3 * i + 2]
         
-        if int(state) == 2:
+
+
+        if DesToBin(int(state))[2] == 1:
             boxList.append((int(x), int(y)))
 
     return boxList 
